@@ -1,0 +1,62 @@
+<style>
+.texstyle {
+    font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;;
+    font-feature-settings: "palt";
+    padding: 1em;
+    background: rgba(0,0,0,0.3);
+    border:solid 1px silver;
+    padding:10px;
+    margin:10px;
+    letter-spacing:-2px;
+    font-size:4em;
+    font-weight:600;
+    color:white;
+    line-height:20px;
+}
+pre{
+    display:inline-block;
+}
+.icn{
+    height:64px;
+    width:64px;
+    display:inline-block;
+}
+.tex{
+    display:inline-block;
+
+}
+#notybar{
+    border:solid 1px silver;
+    width:740px;
+    position:absolute;
+    bottom:0px;
+}
+</style>
+<script type="text/javascript">
+
+function addtex(text){
+var element = document.createElement('div'); 
+    element.classList.add("texstyle"); 
+    element.innerHTML = "<div class='icn'><img></div><div class='tex'>"+text+"</div>";
+    addelement(element,30000);
+}
+function addelement(element,time){
+var objBody = document.querySelector("#notybar"); 
+    objBody.appendChild(element);
+    setTimeout(function(){element.parentNode.removeChild(element)},time)
+}
+window.onload = function(){
+addtex("親譲りの無鉄砲で小供の時から損ばかりしている。\n\n 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。\n\n\nなぜそんな無闇をしたと聞く人があるかも知れぬ。\n\n\n\n別段深い理由でもない。");
+setTimeout(function(){addtex("親譲りの無鉄砲で小供の時から損ばかりしている。\n小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。\nなぜそんな無闇をしたと聞く人があるかも知れぬ。\n別段深い理由でもない。")},500);
+setTimeout(function(){addtex("親譲りの無鉄砲で小供の時から損ばかりしている。\n小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。\nなぜそんな無闇をしたと聞く人があるかも知れぬ。\n別段深い理由でもない。")},600);
+setTimeout(function(){addtex("親譲りの無鉄砲で小供の時から損ばかりしている。\n小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。\nなぜそんな無闇をしたと聞く人があるかも知れぬ。\n別段深い理由でもない。")},700);
+setTimeout(function(){addtex("親譲りの無鉄砲で小供の時から損ばかりしている。\n小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。\nなぜそんな無闇をしたと聞く人があるかも知れぬ。\n別段深い理由でもない。")},800);
+setTimeout(function(){addtex("親譲りの無鉄砲で小供の時から損ばかりしている。\n小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。\nなぜそんな無闇をしたと聞く人があるかも知れぬ。\n別段深い理由でもない。")},900);
+setTimeout(function(){addtex("親譲りの無鉄砲で小供の時から損ばかりしている。\n小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。\nなぜそんな無闇をしたと聞く人があるかも知れぬ。\n別段深い理由でもない。")},5000);
+
+}
+</script>
+<body>
+<div id="notybar">
+</div>
+</body>
