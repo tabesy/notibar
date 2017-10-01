@@ -1,17 +1,27 @@
 <style>
 .texstyle {
-    font-family: "ŸàƒSƒVƒbƒN‘Ì", "Yu Gothic", YuGothic, "ƒqƒ‰ƒMƒmŠpƒS Pro", "Hiragino Kaku Gothic Pro", "ƒƒCƒŠƒI", "Meiryo", sans-serif;;
+    font-family: "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "Yu Gothic", YuGothic, "ãƒ’ãƒ©ã‚®ãƒè§’ã‚´ Pro", "Hiragino Kaku Gothic Pro", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;;
     font-feature-settings: "palt";
-    padding: 1em;
-    background: rgba(0,0,0,0.3);
+    background: rgba(100,50,50,0.3);
     border:solid 1px silver;
-    padding:10px;
     margin:10px;
+    vertical-align:middle;
+    left:-100%;
+    transition: all 300ms 0s ease;
+}
+.neutral{
+    letter-spacing:-2px;
+    font-size:1.75em;
+    color:white;
+    line-height:35px;
+}
+.power{
+    padding:20px;
     letter-spacing:-2px;
     font-size:4em;
-    font-weight:600;
+    font-weight:800;
     color:white;
-    line-height:20px;
+    line-height:55px;
 }
 pre{
     display:inline-block;
@@ -25,11 +35,16 @@ pre{
     display:inline-block;
 
 }
+.deactive{
+}
+.active{
+  transform:translateX(0%);
+}
 #notybar{
     border:solid 1px silver;
-    width:740px;
     position:absolute;
     bottom:0px;
+    width:38.2%;
 }
 </style>
 <script type="text/javascript">
@@ -37,22 +52,46 @@ pre{
 function addtex(text){
 var element = document.createElement('div'); 
     element.classList.add("texstyle"); 
-    element.innerHTML = "<div class='icn'><img></div><div class='tex'>"+text+"</div>";
-    addelement(element,30000);
+    element.classList.add("neutral"); 
+    element.classList.add("deactive"); 
+//    element.innerHTML = "<div class='tex'>"+text+"</div>";
+    addelement(element,10000);
+    typewrite(element,text);
+}
+function typewrite(element,text){
+tx="";
+for(var i in text){
+tx = tx+text[i]
+var tix = 1000*i
+setTimeout(function(){element.innerHTML="<div class='tex'>"+tx+"</div>"};console.log(tix);,tix);
+}
 }
 function addelement(element,time){
 var objBody = document.querySelector("#notybar"); 
     objBody.appendChild(element);
-    setTimeout(function(){element.parentNode.removeChild(element)},time)
+    addanim(element)
+    setTimeout(function(){delanim(element)},time);
+//    setTimeout(function(){element.classList.toggle("active");element.classList.toggle("deactive");},100);
+//    setTimeout(function(){element.classList.toggle("active");element.classList.toggle("deactive")},time);
+    setTimeout(function(){element.parentNode.removeChild(element)},time+1000);
+//    setTimeout(function(){element.parentNode.removeChild(element)},time)
 }
+
+function addanim(element){
+    element.animate([
+      {transform:'translateX(-120%)'},
+      {}
+    ],{duration:200})
+}
+function delanim(element){
+    element.animate([
+      {transform:'translateX(-120%)'},
+    ],{duration:200})
+}
+
 window.onload = function(){
-addtex("e÷‚è‚Ì–³“S–C‚Å¬‹Ÿ‚Ì‚©‚ç‘¹‚Î‚©‚è‚µ‚Ä‚¢‚éB\n\n ¬ŠwZ‚É‹‚é•ªŠwZ‚Ì“ñŠK‚©‚ç”ò‚Ñ~‚è‚ÄˆêTŠÔ‚Ù‚Ç˜‚ğ”²‚©‚µ‚½–‚ª‚ ‚éB\n\n\n‚È‚º‚»‚ñ‚È–³ˆÅ‚ğ‚µ‚½‚Æ•·‚­l‚ª‚ ‚é‚©‚à’m‚ê‚ÊB\n\n\n\n•Ê’i[‚¢——R‚Å‚à‚È‚¢B");
-setTimeout(function(){addtex("e÷‚è‚Ì–³“S–C‚Å¬‹Ÿ‚Ì‚©‚ç‘¹‚Î‚©‚è‚µ‚Ä‚¢‚éB\n¬ŠwZ‚É‹‚é•ªŠwZ‚Ì“ñŠK‚©‚ç”ò‚Ñ~‚è‚ÄˆêTŠÔ‚Ù‚Ç˜‚ğ”²‚©‚µ‚½–‚ª‚ ‚éB\n‚È‚º‚»‚ñ‚È–³ˆÅ‚ğ‚µ‚½‚Æ•·‚­l‚ª‚ ‚é‚©‚à’m‚ê‚ÊB\n•Ê’i[‚¢——R‚Å‚à‚È‚¢B")},500);
-setTimeout(function(){addtex("e÷‚è‚Ì–³“S–C‚Å¬‹Ÿ‚Ì‚©‚ç‘¹‚Î‚©‚è‚µ‚Ä‚¢‚éB\n¬ŠwZ‚É‹‚é•ªŠwZ‚Ì“ñŠK‚©‚ç”ò‚Ñ~‚è‚ÄˆêTŠÔ‚Ù‚Ç˜‚ğ”²‚©‚µ‚½–‚ª‚ ‚éB\n‚È‚º‚»‚ñ‚È–³ˆÅ‚ğ‚µ‚½‚Æ•·‚­l‚ª‚ ‚é‚©‚à’m‚ê‚ÊB\n•Ê’i[‚¢——R‚Å‚à‚È‚¢B")},600);
-setTimeout(function(){addtex("e÷‚è‚Ì–³“S–C‚Å¬‹Ÿ‚Ì‚©‚ç‘¹‚Î‚©‚è‚µ‚Ä‚¢‚éB\n¬ŠwZ‚É‹‚é•ªŠwZ‚Ì“ñŠK‚©‚ç”ò‚Ñ~‚è‚ÄˆêTŠÔ‚Ù‚Ç˜‚ğ”²‚©‚µ‚½–‚ª‚ ‚éB\n‚È‚º‚»‚ñ‚È–³ˆÅ‚ğ‚µ‚½‚Æ•·‚­l‚ª‚ ‚é‚©‚à’m‚ê‚ÊB\n•Ê’i[‚¢——R‚Å‚à‚È‚¢B")},700);
-setTimeout(function(){addtex("e÷‚è‚Ì–³“S–C‚Å¬‹Ÿ‚Ì‚©‚ç‘¹‚Î‚©‚è‚µ‚Ä‚¢‚éB\n¬ŠwZ‚É‹‚é•ªŠwZ‚Ì“ñŠK‚©‚ç”ò‚Ñ~‚è‚ÄˆêTŠÔ‚Ù‚Ç˜‚ğ”²‚©‚µ‚½–‚ª‚ ‚éB\n‚È‚º‚»‚ñ‚È–³ˆÅ‚ğ‚µ‚½‚Æ•·‚­l‚ª‚ ‚é‚©‚à’m‚ê‚ÊB\n•Ê’i[‚¢——R‚Å‚à‚È‚¢B")},800);
-setTimeout(function(){addtex("e÷‚è‚Ì–³“S–C‚Å¬‹Ÿ‚Ì‚©‚ç‘¹‚Î‚©‚è‚µ‚Ä‚¢‚éB\n¬ŠwZ‚É‹‚é•ªŠwZ‚Ì“ñŠK‚©‚ç”ò‚Ñ~‚è‚ÄˆêTŠÔ‚Ù‚Ç˜‚ğ”²‚©‚µ‚½–‚ª‚ ‚éB\n‚È‚º‚»‚ñ‚È–³ˆÅ‚ğ‚µ‚½‚Æ•·‚­l‚ª‚ ‚é‚©‚à’m‚ê‚ÊB\n•Ê’i[‚¢——R‚Å‚à‚È‚¢B")},900);
-setTimeout(function(){addtex("e÷‚è‚Ì–³“S–C‚Å¬‹Ÿ‚Ì‚©‚ç‘¹‚Î‚©‚è‚µ‚Ä‚¢‚éB\n¬ŠwZ‚É‹‚é•ªŠwZ‚Ì“ñŠK‚©‚ç”ò‚Ñ~‚è‚ÄˆêTŠÔ‚Ù‚Ç˜‚ğ”²‚©‚µ‚½–‚ª‚ ‚éB\n‚È‚º‚»‚ñ‚È–³ˆÅ‚ğ‚µ‚½‚Æ•·‚­l‚ª‚ ‚é‚©‚à’m‚ê‚ÊB\n•Ê’i[‚¢——R‚Å‚à‚È‚¢B")},5000);
+addtex("è¦ªè­²ã‚Šã®ç„¡é‰„ç ²ã§å°ä¾›ã®æ™‚ã‹ã‚‰æã°ã‹ã‚Šã—ã¦ã„ã‚‹ã€‚\n\n å°å­¦æ ¡ã«å±…ã‚‹æ™‚åˆ†å­¦æ ¡ã®äºŒéšã‹ã‚‰é£›ã³é™ã‚Šã¦ä¸€é€±é–“ã»ã©è…°ã‚’æŠœã‹ã—ãŸäº‹ãŒã‚ã‚‹ã€‚\n\n\nãªãœãã‚“ãªç„¡é—‡ã‚’ã—ãŸã¨èãäººãŒã‚ã‚‹ã‹ã‚‚çŸ¥ã‚Œã¬ã€‚\n\n\n\nåˆ¥æ®µæ·±ã„ç†ç”±ã§ã‚‚ãªã„ã€‚");
+setTimeout(function(){addtex("è¦ªè­²ã‚Šã®ç„¡é‰„ç ²ã§å°ä¾›ã®æ™‚ã‹ã‚‰æã°ã‹ã‚Šã—ã¦ã„ã‚‹ã€‚\nå°å­¦æ ¡ã«å±…ã‚‹æ™‚åˆ†å­¦æ ¡ã®äºŒéšã‹ã‚‰é£›ã³é™ã‚Šã¦ä¸€é€±é–“ã»ã©è…°ã‚’æŠœã‹ã—ãŸäº‹ãŒã‚ã‚‹ã€‚\nãªãœãã‚“ãªç„¡é—‡ã‚’ã—ãŸã¨èãäººãŒã‚ã‚‹ã‹ã‚‚çŸ¥ã‚Œã¬ã€‚\nåˆ¥æ®µæ·±ã„ç†ç”±ã§ã‚‚ãªã„ã€‚")},1000);
 
 }
 </script>
